@@ -15,13 +15,7 @@ public class Date_Step {
 	Date_Page Date;
 	
 	
-	@Given("^open the valid url in Propine application$")
-	public void open_the_valid_url_in_Propine_application() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		TestBase.driver.get(ObjectRepo.reader.getWebsite());
-		
-		
-	}
+
 
 	@Then("^Enter the Valid Date field  \"([^\"]*)\"$")
 	public void enter_the_Valid_Date_field(String arg1) throws Throwable {

@@ -122,7 +122,7 @@ public class TestBase {
 		      scenario.embed(screenshot, "image/png"); // ... and embed it in the report.
 		    }
 
-		 driver.quit();
+		// driver.quit();
 		Thread.sleep(2000);
 		//log.info("Browser is closed");
 	}

@@ -1,107 +1,42 @@
 @Propine_Date_Functionality
-Feature: verify the account by filling the registration
+Feature: verify the Date field Validation
 
   Scenario: Verify whether valid result is displayed or not    [90m# featurefile/Propines/Date_Functionality.feature:4[0m
     [32mGiven [0m[32mopen the valid url in Propine application[0m            [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the Valid Date field  "[0m[32m[1m12-12-2020[0m[32m"[0m              [90m# Date_Step.enter_the_Valid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                               [90m# Date_Step.click_the_submit_button()[0m
-    [32mThen [0m[32mVerify valid Date should be display "[0m[32m[1mSat Dec 12 2020[0m[32m"[0m [90m# Date_Step.verify_valid_Date_should_be_display(String)[0m
-
-  Scenario: Verify Validation message is displayed while entering the Valid Inputlike -13/10/2020(DD/MM/YYYY) [90m# featurefile/Propines/Date_Functionality.feature:11[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                           [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the Valid Date field  "[0m[32m[1m13-10-2020[0m[32m"[0m                                                             [90m# Date_Step.enter_the_Valid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                              [90m# Date_Step.click_the_submit_button()[0m
-    [31mThen [0m[31mVerify correct Date should be displayed "[0m[31m[1mTue Oct 13 2020[0m[31m"[0m                                            [90m# Date_Step.verify_correct_Date_should_be_displayed(String)[0m
-      [31mjava.lang.NullPointerException
-      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.verify_correct_Date_should_be_displayed(Date_Step.java:69)
-      	at ✽.Then Verify correct Date should be displayed "Tue Oct 13 2020"(featurefile/Propines/Date_Functionality.feature:15)
+    [31mThen [0m[31mEnter the Valid Date field  "[0m[31m[1m12-12-2020[0m[31m"[0m              [90m# Date_Step.enter_the_Valid_Date_field(String)[0m
+      [31morg.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":".//input[@name='date']"}
+        (Session info: chrome=83.0.4103.61)
+        (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+      Command duration or timeout: 0 milliseconds
+      For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+      Build info: version: '3.5.1', revision: '9c21bb67ef', time: '2017-08-17T15:26:08.955Z'
+      System info: host: 'LAPTOP-P9U8PG08', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+      Driver info: org.openqa.selenium.chrome.ChromeDriver
+      Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=XP, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab), userDataDir=C:\Users\MANIVA~1\AppData\Local\Temp\scoped_dir10980_15926}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=83.0.4103.61, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+      Session ID: 33c23fa62f87fc7f37f31a1882a2aa4d
+      *** Element info: {Using=xpath, value=.//input[@name='date']}
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+      	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+      	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+      	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+      	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+      	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+      	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+      	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+      	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+      	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+      	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:414)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:513)
+      	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+      	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:406)
+      	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+      	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+      	at com.sun.proxy.$Proxy22.sendKeys(Unknown Source)
+      	at com.cucumber.framework.Propine_Page.Date_Page.Date_field(Date_Page.java:48)
+      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.enter_the_Valid_Date_field(Date_Step.java:31)
+      	at ✽.Then Enter the Valid Date field  "12-12-2020"(featurefile/Propines/Date_Functionality.feature:6)
       [0m
-
-  Scenario Outline: Verify whether all date format should be displayed [90m# featurefile/Propines/Date_Functionality.feature:19[0m
-    [36mGiven [0m[36mopen the valid url in Propine application[0m
-    [36mThen [0m[36mEnter the Valid Date format in date field "<Date>"[0m
-    [36mThen [0m[36mclick the submit button[0m
-    [36mThen [0m[36mVerify correct Date should be display "Thu Nov 12 2020"[0m
-
-    Examples: 
-
-  @Propine_Date_Functionality
-  Scenario Outline: Verify whether all date format should be displayed [90m# featurefile/Propines/Date_Functionality.feature:27[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                    [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the Valid Date format in date field "[0m[32m[1m11-12-2020[0m[32m"[0m        [90m# Date_Step.enter_the_Valid_Date_format_in_date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                       [90m# Date_Step.click_the_submit_button()[0m
-    [32mThen [0m[32mVerify correct Date should be display "[0m[32m[1mThu Nov 12 2020[0m[32m"[0m       [90m# Date_Step.verify_correct_Date_should_be_display(String)[0m
-
-  @Propine_Date_Functionality
-  Scenario Outline: Verify whether all date format should be displayed [90m# featurefile/Propines/Date_Functionality.feature:28[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                    [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the Valid Date format in date field "[0m[32m[1m11/12/2020[0m[32m"[0m        [90m# Date_Step.enter_the_Valid_Date_format_in_date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                       [90m# Date_Step.click_the_submit_button()[0m
-    [32mThen [0m[32mVerify correct Date should be display "[0m[32m[1mThu Nov 12 2020[0m[32m"[0m       [90m# Date_Step.verify_correct_Date_should_be_display(String)[0m
-
-  Scenario: Valid Validation Message should be displayed while entering the invalid input like “02-31-2020” [90m# featurefile/Propines/Date_Functionality.feature:30[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                         [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1m02-31-2020[0m[32m"[0m                                                         [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                            [90m# Date_Step.click_the_submit_button()[0m
-    [31mThen [0m[31mVerify whether proper validation message should be displayed "[0m[31m[1mInvalid date[0m[31m"[0m                        [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-      [31mjava.lang.NullPointerException
-      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.verify_whether_proper_validation_message_should_be_displayed(Date_Step.java:84)
-      	at ✽.Then Verify whether proper validation message should be displayed "Invalid date"(featurefile/Propines/Date_Functionality.feature:34)
-      [0m
-
-  Scenario: Proper Validation is not displayed while entering the Date field like – “111111” [90m# featurefile/Propines/Date_Functionality.feature:36[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                          [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1m11111[0m[32m"[0m                                               [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                             [90m# Date_Step.click_the_submit_button()[0m
-    [31mThen [0m[31mVerify whether proper validation message should be displayed "[0m[31m[1mInvalid date[0m[31m"[0m         [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-      [31mjava.lang.NullPointerException
-      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.verify_whether_proper_validation_message_should_be_displayed(Date_Step.java:84)
-      	at ✽.Then Verify whether proper validation message should be displayed "Invalid date"(featurefile/Propines/Date_Functionality.feature:40)
-      [0m
-
-  Scenario: Proper Validation is not displayed while entering the Date field like – “0” [90m# featurefile/Propines/Date_Functionality.feature:43[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                     [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1m0[0m[32m"[0m                                              [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                        [90m# Date_Step.click_the_submit_button()[0m
-    [31mThen [0m[31mVerify whether proper validation message should be displayed "[0m[31m[1mInvalid date[0m[31m"[0m    [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-      [31mjava.lang.NullPointerException
-      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.verify_whether_proper_validation_message_should_be_displayed(Date_Step.java:84)
-      	at ✽.Then Verify whether proper validation message should be displayed "Invalid date"(featurefile/Propines/Date_Functionality.feature:47)
-      [0m
-
-  Scenario: Proper Validation Message is not displayed while entering the Date field like – “12-12” [90m# featurefile/Propines/Date_Functionality.feature:49[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                 [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1m12-12[0m[32m"[0m                                                      [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                    [90m# Date_Step.click_the_submit_button()[0m
-    [31mThen [0m[31mVerify whether proper validation message should be displayed "[0m[31m[1mInvalid date[0m[31m"[0m                [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-      [31mjava.lang.NullPointerException
-      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.verify_whether_proper_validation_message_should_be_displayed(Date_Step.java:84)
-      	at ✽.Then Verify whether proper validation message should be displayed "Invalid date"(featurefile/Propines/Date_Functionality.feature:53)
-      [0m
-
-  Scenario: Proper Validation message is not displayed while entering the Date field like – “12-12-12222” [90m# featurefile/Propines/Date_Functionality.feature:56[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                       [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1m12-12-12222[0m[32m"[0m                                                      [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                          [90m# Date_Step.click_the_submit_button()[0m
-    [31mThen [0m[31mVerify whether proper validation message should be displayed "[0m[31m[1mInvalid date[0m[31m"[0m                      [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-      [31mjava.lang.NullPointerException
-      	at com.cucumber.framework.stepdefinition.Propine_Step.Date_Step.verify_whether_proper_validation_message_should_be_displayed(Date_Step.java:84)
-      	at ✽.Then Verify whether proper validation message should be displayed "Invalid date"(featurefile/Propines/Date_Functionality.feature:60)
-      [0m
-
-  Scenario: Proper Validation message is not displayed while entering the Date field like – “01-2020-01” [90m# featurefile/Propines/Date_Functionality.feature:63[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                      [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1m01-2020-01[0m[32m"[0m                                                      [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                         [90m# Date_Step.click_the_submit_button()[0m
-    [32mThen [0m[32mVerify whether proper validation message should be displayed "[0m[32m[1mInvalid date[0m[32m"[0m                     [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-
-  Scenario: Proper Validation message is not displayed while entering the Date field like – “sdfdsfsdfdsf” [90m# featurefile/Propines/Date_Functionality.feature:70[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                        [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mEnter the InValid Date field  "[0m[32m[1msdfdsfsdfdsf[0m[32m"[0m                                                      [90m# Date_Step.enter_the_InValid_Date_field(String)[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                           [90m# Date_Step.click_the_submit_button()[0m
-    [32mThen [0m[32mVerify whether proper validation message should be displayed "[0m[32m[1mInvalid date[0m[32m"[0m                       [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
-
-  Scenario: Validation Message should be displayed while click on the submit button without entering the Date field [90m# featurefile/Propines/Date_Functionality.feature:77[0m
-    [32mGiven [0m[32mopen the valid url in Propine application[0m                                                                 [90m# Date_Step.open_the_valid_url_in_Propine_application()[0m
-    [32mThen [0m[32mclick the submit button[0m                                                                                    [90m# Date_Step.click_the_submit_button()[0m
-    [32mThen [0m[32mVerify whether proper validation message should be displayed "[0m[32m[1mInvalid date[0m[32m"[0m                                [90m# Date_Step.verify_whether_proper_validation_message_should_be_displayed(String)[0m
+    [36mThen [0m[36mclick the submit button[0m                               [90m# Date_Step.click_the_submit_button()[0m
+    [36mThen [0m[36mVerify valid Date should be display "[0m[36m[1mSat Dec 12 2020[0m[36m"[0m [90m# Date_Step.verify_valid_Date_should_be_display(String)[0m
