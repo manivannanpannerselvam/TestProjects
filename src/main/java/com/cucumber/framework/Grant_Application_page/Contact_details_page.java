@@ -1,5 +1,8 @@
 package com.cucumber.framework.Grant_Application_page;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -8,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.cucumber.framework.configreader.ObjectRepo;
 import com.cucumber.framework.helper.Wait.WaitHelper;
+import com.cucumber.framework.helper.genericHelper.GenericHelper;
 
 public class Contact_details_page {
 
@@ -38,12 +42,64 @@ public class Contact_details_page {
 	@FindBy(xpath=".//input[@id='react-contact_info-copied']")
 	WebElement offer_address;
 	
+	@FindBy(xpath=".//input[@id='react-contact_info-correspondence_address-postal']")
+	WebElement Postal_code;
+	
+	@FindBy(xpath=".//input[@id='react-contact_info-name']")
+	WebElement Names_fields;
+	
+	@FindBy(xpath=".//input[@id='react-contact_info-offeree_name']")
+	WebElement Letter_offer_Name_field;
+	
+	
+	
+	
 	public Contact_details_page(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
+		pattern=Pattern.compile(zipcodePattern);
 		//
 	}
+	
+	 final static String zipcodePattern="\\b[0-9]{5}(?:-[0-9]{4})?\\b";
+	  private static Pattern pattern;
+	  private static Matcher matcher;
+	
+
+	  
+	  
+	  public boolean validate (String ZipCode)
+	  {
+	    matcher=pattern.matcher(ZipCode);
+	    return matcher.matches();
+	  }
+	  
+	  public String Same_as_main_contact_person()
+	  {
+			//return new GenericHelper().isDisplayed(successMsgObject);
+			return new GenericHelper().getElementTexts(Letter_offer_Name_field);
+	  }
+	  
+	  
+	  public boolean Letter_offer_Name_field()
+		{
+			//return new GenericHelper().isDisplayed(successMsgObject);
+			return new GenericHelper().isDisplayed(Letter_offer_Name_field);
+		}
+	  
+	  public String Names_fields()
+		{
+			//return new GenericHelper().isDisplayed(successMsgObject);
+			return new GenericHelper().getElementTexts(Names_fields);
+		}
+	  
+	  public String verify_postalcode_results()
+		{
+			//return new GenericHelper().isDisplayed(successMsgObject);
+			return new GenericHelper().getElementTexts(Postal_code);
+		}
+		
 	
 	public void offer_address() throws InterruptedException
 	{

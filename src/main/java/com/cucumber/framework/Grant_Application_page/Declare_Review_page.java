@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.cucumber.framework.configreader.ObjectRepo;
 import com.cucumber.framework.helper.Wait.WaitHelper;
+import com.cucumber.framework.helper.genericHelper.GenericHelper;
 
 public class Declare_Review_page {
 
@@ -46,13 +47,29 @@ public class Declare_Review_page {
 	@FindBy(xpath=".//label[text()='Has the applicant been or is currently being: ']//following::span[text()='No'][7]")
 	WebElement nine_Question;
 	
+	@FindBy(xpath=".//label[text()='Enterprise Singapore'")
+	WebElement Entrprise_sing;
 	
+	@FindBy(xpath=".//label[text()='MY GRANTS'")
+	WebElement MY_grants;
 	
 	public Declare_Review_page(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
 		//
+	}
+	public boolean MY_grants()
+	{
+		//return new GenericHelper().isDisplayed(successMsgObject);
+		return new GenericHelper().isDisplayed(MY_grants);
+	}
+	
+	
+	public boolean Entrprise_sing()
+	{
+		//return new GenericHelper().isDisplayed(successMsgObject);
+		return new GenericHelper().isDisplayed(Entrprise_sing);
 	}
 	
 	public void Declare_Review() throws InterruptedException

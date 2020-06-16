@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.cucumber.framework.configreader.ObjectRepo;
 import com.cucumber.framework.helper.Wait.WaitHelper;
+import com.cucumber.framework.helper.genericHelper.GenericHelper;
 
 public class Eligibility_page {
 
@@ -16,23 +17,30 @@ public class Eligibility_page {
 	WaitHelper waitHelper;
 	Actions actions;
 	
-	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='Yes'][1]")
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='No'][1]")
 	WebElement Applicant_yes;
 	
-	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='Yes'][2]")
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='No'][2]")
 	WebElement Applicant_Group;
 	
-	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='Yes'][3]")
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='No'][3]")
 	WebElement Applicant_Atleast;
 	
-	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='Yes'][4]")
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='No'][4]")
 	WebElement Applicant_market;
 	
-	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='Yes'][5]")
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='No'][5]")
 	WebElement Applicant_Following_statement;
 	
 	@FindBy(xpath=".//button[@id='save-btn']")
 	WebElement Save_Eligibility;
+	
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::span[text()='The applicant may not meet the eligibility criteria for this grant. Visit '][1]")
+	WebElement Alertmessage;
+	
+	@FindBy(xpath=".//label[text()='Is the applicant registered in Singapore?']//following::a[text()='FAQ'][1]")
+	WebElement FAQ;
+	
 	
 	
 	public Eligibility_page(WebDriver driver) {
@@ -40,6 +48,24 @@ public class Eligibility_page {
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
 		//
+	}
+	public boolean verifyFAQ(){
+		return new GenericHelper().isDisplayed(FAQ);
+	}
+	public void FAQ() throws InterruptedException
+	{
+		waitHelper.waitForElement(driver, FAQ,ObjectRepo.reader.getPageLoadTimeOut());
+		waitHelper.waitForElement(driver, FAQ,ObjectRepo.reader.getExplicitWait());
+		
+		actions = new Actions(driver);
+		actions.moveToElement(FAQ);
+		
+		actions.click().build().perform();
+	}
+	public String Alertmessage()
+	{
+		//return new GenericHelper().isDisplayed(successMsgObject);
+		return new GenericHelper().getElementText(Alertmessage);
 	}
 	
 	public void Save_Eligibility() throws InterruptedException
